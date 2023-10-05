@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//iPhone OS 11.2.2//EN
+N:Patel;Maulik;;;
+FN: Maulik  Patel
+ORG:" ";
+TITLE: FullStack Software Developer
+EMAIL;type=INTERNET;type=WORK;type=pref:mail@patelmaulik.com
+TEL;type=MOBILE;type=VOICE:+1 929 933 8033
+END:VCARD
