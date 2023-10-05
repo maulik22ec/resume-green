@@ -1,6 +1,8 @@
 BEGIN:VCARD
 VERSION:4.0
+MEDIATYPE:text/vcard
 KIND:individual
+PROFILE:vcard
 Contact:Patel;Maulik
 N:Patel;Maulik;;;
 FN: Maulik  Patel
