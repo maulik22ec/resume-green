@@ -142,26 +142,33 @@
     <script type="text/javascript" src="js/jquery.hoverdir.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
   <script>
-    var saveBtn = document.getElementById("save-btn");
-    saveBtn.addEventListener("click", function () {
-      // Get the contact information from the website
-      var contact = {
-        name: "James Patel",
-        phone: "929 933 8033",
-        email: "mail@patelmaulik.com"
-      };
-      // create a vcard file
-      var vcard = "BEGIN:VCARD\nVERSION:4.0\nFN:" + contact.name + "\nTEL;TYPE=work,voice:" + contact.phone + "\nEMAIL:" + contact.email + "\nEND:VCARD";
-      var blob = new Blob([vcard], { type: "text/vcard" });
-      var url = URL.createObjectURL(blob);
+    // var saveBtn = document.getElementById("save-btn");
+    // saveBtn.addEventListener("click", function () {
+    //   // Get the contact information from the website
+    //   var contact = {
+    //     name: "James Patel",
+    //     phone: "929 933 8033",
+    //     email: "mail@patelmaulik.com"
+    //   };
+    //   // create a vcard file
+    //   var vcard = "BEGIN:VCARD\nVERSION:4.0\nFN:" + contact.name + "\nTEL;TYPE=work,voice:" + contact.phone + "\nEMAIL:" + contact.email + "\nEND:VCARD";
+    //   var blob = new Blob([vcard], { type: "text/vcard" });
+    //   var url = URL.createObjectURL(blob);
+    //
+    //   const newLink = document.createElement('a');
+    //   newLink.download = contact.name + ".vcf";
+    //   newLink.textContent = contact.name;
+    //   newLink.href = url;
+    //
+    //   newLink.click();
+   // })
+      var btn = document.getElementById("save-btn");
+      btn.addEventListener("click", loadvcard);
+      function loadvcard(){
+        var data = "BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ADoe%3BJohn%0AFN%3AJohn%20Doe%0ATITLE%3A08002221111%0AORG%3AStackflowover%0AEMAIL%3BTYPE%3DINTERNET%3Ajohndoe%40gmail.com%0AEND%3AVCARD";
+        window.open("data:text/x-vcard;urlencoded," + data);
+      }
 
-      const newLink = document.createElement('a');
-      newLink.download = contact.name + ".vcf";
-      newLink.textContent = contact.name;
-      newLink.href = url;
-
-      newLink.click();
-    });
   </script>
   </body>
 </html>
