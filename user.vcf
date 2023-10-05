@@ -1,10 +1,9 @@
 BEGIN:VCARD
 VERSION:4.0
 KIND:individual
+Contact:Patel;Maulik
 N:Patel;Maulik;;;
 FN: Maulik  Patel
-ORG:" ";
-TITLE: FullStack Software Developer
 EMAIL;type=INTERNET;type=WORK;type=pref:mail@patelmaulik.com
 TEL;type=MOBILE;type=VOICE:+1 929 933 8033
 END:VCARD
