@@ -50,5 +50,5 @@
                 $('.header').addClass('sticked');
             }
         })
-        .scrollTop(0);
+        .scrollTop(5);
 })(jQuery);
