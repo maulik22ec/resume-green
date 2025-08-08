@@ -7,6 +7,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* Offset for the fixed header */
+        }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #111827;
@@ -33,6 +37,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 100%;
+            height: 100%;
             object-fit: cover;
             z-index: 2;
             mix-blend-mode: screen;
@@ -55,9 +60,13 @@
             transform: translateY(0);
         }
         .section-card {
-            background-color: rgba(31, 41, 55, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(31, 41, 55, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: box-shadow 0.3s ease-out;
+        }
+        .section-card:hover {
+            box-shadow: 0 0 25px rgba(167, 139, 250, 0.3);
         }
         .skill-badge {
             background-image: linear-gradient(to right, #4338ca, #6366f1);
@@ -66,13 +75,6 @@
         .skill-badge:hover {
             transform: scale(1.05);
             box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
-        }
-        .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.1);
         }
         ::-webkit-scrollbar {
             width: 8px;
@@ -114,7 +116,7 @@
             <div id="hero-name-container">
                 <h1 class="text-5xl md:text-8xl font-bold hero-name">Maulik Patel</h1>
                 <video id="smoke-video" autoplay loop muted playsinline>
-                    <source src="smoke.mp4" type="video/mp4">
+                    <source src="https://videos.pexels.com/video-files/2759484/2759484-hd_1280_720_25fps.mp4" type="video/mp4">
                 </video>
             </div>
             <p class="text-xl md:text-2xl text-indigo-400 font-semibold mt-8 animated-section">Software Engineering Leader</p>
@@ -127,7 +129,7 @@
         </section>
 
         <section id="skills" class="p-8 rounded-lg section-card animated-section">
-            <h2 class="text-3xl font-bold text-white mb-8 text-center">Technical Skills</h2>
+            <h2 class="text-3xl font-bold text-white mb-6">Technical Skills</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-gray-800/50 p-6 rounded-lg"><h3 class="text-xl font-bold text-indigo-300 mb-4">Backend</h3><div class="flex flex-wrap gap-3"><span class="px-4 py-2 rounded-full font-semibold skill-badge">Java (8/17)</span><span class="px-4 py-2 rounded-full font-semibold skill-badge">Python</span><span class="px-4 py-2 rounded-full font-semibold skill-badge">Spring Boot</span><span class="px-4 py-2 rounded-full font-semibold skill-badge">Microservices</span><span class="px-4 py-2 rounded-full font-semibold skill-badge">Reactive Programming</span><span class="px-4 py-2 rounded-full font-semibold skill-badge">Spring Data JPA</span><span class="px-4 py-2 rounded-full font-semibold skill-badge">Hibernate</span><span class="px-4 py-2 rounded-full font-semibold skill-badge">Apache Kafka</span></div></div>
                 <div class="bg-gray-800/50 p-6 rounded-lg"><h3 class="text-xl font-bold text-indigo-300 mb-4">Frontend</h3><div class="flex flex-wrap gap-3"><span class="px-4 py-2 rounded-full font-semibold skill-badge">AngularJS</span><span class="px-4 py-2 rounded-full font-semibold skill-badge">React</span><span class="px-4 py-2 rounded-full font-semibold skill-badge">SPA</span><span class="px-4 py-2 rounded-full font-semibold skill-badge">JavaScript (ES6+)</span><span class="px-4 py-2 rounded-full font-semibold skill-badge">HTML5</span><span class="px-4 py-2 rounded-full font-semibold skill-badge">CSS3</span><span class="px-4 py-2 rounded-full font-semibold skill-badge">SASS</span></div></div>
@@ -150,6 +152,7 @@
                 <div class="border-l-2 border-indigo-500 pl-6"><h3 class="text-xl font-semibold text-white">Firmware Engineer</h3><p class="text-indigo-400">NTICE Technology, Ahmedabad, India | Aug 2010 - Jun 2012</p><p class="mt-2 text-gray-300">Built ZigBee and Wi-Fi communication modules for India’s Smart Grid initiative, enabling remote data transmission to control centers.</p></div>
             </div>
         </section>
+
         <section id="education" class="p-8 rounded-lg section-card animated-section">
             <h2 class="text-3xl font-bold text-white mb-6">Education</h2>
             <div class="space-y-6">
@@ -160,13 +163,13 @@
         </section>
 
         <section id="contact" class="p-8 rounded-lg section-card text-center animated-section">
-            <h2 class="text-3xl font-bold text-white mb-4">Get In Touch</h2>
+            <h2 class="text-3xl font-bold text-white mb-6">Get In Touch</h2>
             <p class="text-gray-400 mb-6">Feel free to reach out.</p>
             <a href="mailto:maulik22ec@gmail.com" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Email Me</a>
         </section>
     </main>
 
-    <footer class="w-full py-8 mt-16 text-center text-gray-500 animated-section"><p>&copy; 2025 Maulik Patel. All rights reserved.</p></footer>
+    <footer class="w-full py-8 mt-16 text-center text-gray-500 animated-section"></footer>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -181,40 +184,110 @@
         }, { threshold: 0.1 });
         animatedSections.forEach(section => observer.observe(section));
 
-        // --- Starfield Animation ---
-        let bgScene, bgCamera, bgRenderer, stars;
+        // --- Starfield & Planets Animation ---
+        let bgScene, bgCamera, bgRenderer, stars, planets = [], satellite;
 
         function init() {
-            // Starfield
             bgScene = new THREE.Scene();
-            bgCamera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-            bgCamera.position.z = 1;
-            bgCamera.rotation.x = Math.PI / 2;
+            bgCamera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 4000);
+            bgCamera.position.z = 500;
             const bgCanvas = document.getElementById('bg-canvas');
-            bgRenderer = new THREE.WebGLRenderer({ canvas: bgCanvas, antias: true });
+            bgRenderer = new THREE.WebGLRenderer({ canvas: bgCanvas, antialias: true });
             bgRenderer.setSize(window.innerWidth, window.innerHeight);
+
+            // Stars
             const starGeo = new THREE.BufferGeometry();
             const starVertices = [];
-            for (let i = 0; i < 8000; i++) {
-                starVertices.push((Math.random() - 0.5) * 2000, (Math.random() - 0.5) * 2000, (Math.random() - 0.5) * 2000);
+            for (let i = 0; i < 15000; i++) {
+                starVertices.push((Math.random() - 0.5) * 3000, (Math.random() - 0.5) * 3000, (Math.random() - 0.5) * 3000);
             }
             starGeo.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
-            const starMaterial = new THREE.PointsMaterial({ color: 0xaaaaaa, size: 0.7, map: new THREE.TextureLoader().load('https://placehold.co/16x16/ffffff/ffffff.png'), transparent: true });
+            const starMaterial = new THREE.PointsMaterial({ color: 0xaaaaaa, size: 0.7 });
             stars = new THREE.Points(starGeo, starMaterial);
             bgScene.add(stars);
+
+            // Planets Data: { name, color, size, orbitRadius, speed }
+            const planetsData = [
+                { name: 'Mercury', color: 0x8c8c8c, size: 3, orbitRadius: 100, speed: 0.0048 },
+                { name: 'Venus', color: 0xffa500, size: 6, orbitRadius: 150, speed: 0.0035 },
+                { name: 'Earth', color: 0x0077be, size: 6.5, orbitRadius: 220, speed: 0.0030 },
+                { name: 'Mars', color: 0xff4500, size: 4, orbitRadius: 300, speed: 0.0024 },
+                { name: 'Jupiter', color: 0xffd700, size: 20, orbitRadius: 450, speed: 0.0013 },
+                { name: 'Saturn', color: 0xf0e68c, size: 18, orbitRadius: 650, speed: 0.0010, hasRings: true },
+                { name: 'Uranus', color: 0xadd8e6, size: 12, orbitRadius: 800, speed: 0.0007 },
+                { name: 'Neptune', color: 0x0000ff, size: 11, orbitRadius: 950, speed: 0.0005 }
+            ];
+
+            planetsData.forEach(data => {
+                const planetGroup = new THREE.Group();
+                const geometry = new THREE.SphereGeometry(data.size, 32, 32);
+                const material = new THREE.MeshStandardMaterial({ color: data.color });
+                const planet = new THREE.Mesh(geometry, material);
+                planetGroup.add(planet);
+
+                if (data.hasRings) {
+                    const ringGeometry = new THREE.RingGeometry(data.size * 1.2, data.size * 1.8, 64);
+                    const ringMaterial = new THREE.MeshBasicMaterial({ color: 0xaaaadd, side: THREE.DoubleSide, transparent: true, opacity: 0.6 });
+                    const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+                    ring.rotation.x = Math.PI / 2;
+                    planetGroup.add(ring);
+                }
+
+                planetGroup.orbitRadius = data.orbitRadius;
+                planetGroup.speed = data.speed;
+                planetGroup.angle = Math.random() * 2 * Math.PI;
+                bgScene.add(planetGroup);
+                planets.push(planetGroup);
+            });
+
+
+            // Satellite
+            const satelliteBody = new THREE.Mesh(new THREE.BoxGeometry(10, 10, 20), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
+            const panel1 = new THREE.Mesh(new THREE.BoxGeometry(30, 1, 10), new THREE.MeshStandardMaterial({ color: 0x0000ff }));
+            panel1.position.x = 20;
+            const panel2 = panel1.clone();
+            panel2.position.x = -20;
+            satellite = new THREE.Group();
+            satellite.add(satelliteBody);
+            satellite.add(panel1);
+            satellite.add(panel2);
+            satellite.position.set(800, 400, -800);
+            satellite.speed = new THREE.Vector3(-0.3, -0.15, 0.3);
+            bgScene.add(satellite);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+            bgScene.add(ambientLight);
+            const pointLight = new THREE.PointLight(0xffffff, 1.5);
+            pointLight.position.set(0, 0, 0);
+            bgScene.add(pointLight);
 
             animate();
         }
 
         function animate() {
-            // Starfield
-            stars.rotation.y += 0.0002;
+            const time = Date.now();
+            stars.rotation.y += 0.0001;
+
+            planets.forEach(p => {
+                p.angle += p.speed;
+                p.position.x = p.orbitRadius * Math.cos(p.angle);
+                p.position.z = p.orbitRadius * Math.sin(p.angle);
+                p.rotation.y += 0.005;
+            });
+
+            satellite.position.add(satellite.speed);
+            satellite.rotation.x += 0.01;
+            satellite.rotation.y += 0.01;
+            if (satellite.position.x < -1500 || satellite.position.y < -1500 || satellite.position.z > 1500) {
+                satellite.position.set(1500, Math.random() * 1000 - 500, -1500);
+            }
+
             bgRenderer.render(bgScene, bgCamera);
             requestAnimationFrame(animate);
         }
 
         function onWindowResize() {
-            // Starfield
             bgCamera.aspect = window.innerWidth / window.innerHeight;
             bgCamera.updateProjectionMatrix();
             bgRenderer.setSize(window.innerWidth, window.innerHeight);
