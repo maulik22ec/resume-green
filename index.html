@@ -233,10 +233,9 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // --- Generic Typewriter Function ---
         function typeWriter(element, text, speed, callback) {
             let i = 0;
-            element.innerHTML = ''; // Clear element
+            element.innerHTML = '';
             function type() {
                 if (i < text.length) {
                     element.innerHTML += text.charAt(i);
@@ -248,8 +247,6 @@
             }
             type();
         }
-
-        // --- Scroll Animations ---
         const animatedSections = document.querySelectorAll('.animated-section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
