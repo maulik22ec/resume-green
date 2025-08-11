@@ -23,33 +23,16 @@
         .hero-name {
             color: #e5c07b; /* Muted gold for the name */
             position: relative;
-            transform: scale(0);
-            opacity: 0;
-            transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 1s ease-out;
-        }
-        .hero-name.visible {
-            transform: scale(1);
-            opacity: 1;
-        }
-        .code-line {
-            color: #abb2bf;
-            font-size: 2rem; /* Increased size */
-            display: block; /* Changed to block for multiple lines */
-            text-align: left;
-        }
-        @media (min-width: 768px) {
-            .code-line {
-                font-size: 3rem; /* Larger size on bigger screens */
-            }
+            display: inline-block;
         }
         .typewriter-cursor {
             display: inline-block;
-            width: 12px;
-            height: 1.2em;
+            width: 8px;
+            height: 1em;
             background-color: #e5c07b;
             animation: blink 0.7s infinite;
             vertical-align: bottom;
-            margin-left: 4px;
+            margin-left: 2px;
         }
         @keyframes blink {
             50% { opacity: 0; }
@@ -106,16 +89,9 @@
         .themed-button {
             background-color: #e5c07b;
             color: #282c34;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: opacity 0.5s ease, transform 0.5s ease;
         }
-        .themed-button.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .themed-button:active {
-            transform: scale(0.95);
+        .themed-button:hover {
+            background-color: #d4b06a;
         }
         ::-webkit-scrollbar {
             width: 8px;
@@ -131,7 +107,7 @@
 </head>
 <body class="antialiased">
 
-<div class="relative flex flex-col items-center">
+<div class="relative min-h-screen flex flex-col items-center p-4 sm:p-6 lg:p-8">
     <header class="fixed top-0 left-0 right-0 z-10 header p-4">
         <nav class="container mx-auto flex justify-between items-center">
             <a href="#hero" class="nav-link">
@@ -155,27 +131,19 @@
         </nav>
     </header>
 
-    <section id="hero" class="w-full text-center min-h-screen flex flex-col justify-center items-center relative p-4 sm:p-6 lg:p-8">
-        <div id="intro-animation-container">
-            <div id="code-container" class="mb-8">
-                <h1 id="code-line-1" class="code-line"></h1>
+    <main class="container mx-auto mt-24 space-y-16">
+        <section id="hero" class="text-center min-h-[60vh] flex flex-col justify-center items-center relative">
+            <div id="hero-name-container">
+                <h1 id="hero-name" class="text-5xl md:text-8xl font-bold hero-name"></h1>
             </div>
-            <button id="execute-button" class="themed-button font-bold py-3 px-6 rounded-md transition duration-300">Execute</button>
-        </div>
-        <div id="hero-output-container" class="hidden">
-            <h1 id="hero-name" class="text-5xl md:text-8xl font-bold hero-name">Maulik Patel</h1>
-            <div id="hero-details" class="opacity-0 transition-opacity duration-1000" style="transition-duration: 1.5s;">
-                <p class="text-xl md:text-2xl highlight-text font-semibold mt-8">Software Engineering Leader</p>
-                <p class="mt-4 max-w-2xl text-gray-300 text-lg">12+ years of experience delivering enterprise-scale platforms across multiple domains, focusing on engineering efficiency and clean architecture.</p>
-            </div>
-        </div>
-    </section>
+            <p class="text-xl md:text-2xl highlight-text font-semibold mt-8 animated-section">Software Engineering Leader</p>
+            <p class="mt-4 max-w-2xl text-gray-400 animated-section" style="transition-delay: 0.2s;">12+ years of experience delivering enterprise-scale platforms across multiple domains, focusing on engineering efficiency and clean architecture.</p>
+        </section>
 
-    <main class="container mx-auto space-y-16 p-4 sm:p-6 lg:p-8">
         <section id="about" class="p-8 rounded-lg section-card animated-section">
             <h2 class="text-3xl font-bold highlight-text mb-6" data-text="About Me"></h2>
             <div class="section-content">
-                <p class="text-gray-300 text-lg leading-loose">Experienced software engineering leader recognized for engineering efficiency, clean architecture, and results-driven delivery that aligns technology with business outcomes. I have a passion for building robust, scalable systems and leading cross-functional teams to success.</p>
+                <p class="text-gray-400 leading-relaxed">Experienced software engineering leader recognized for engineering efficiency, clean architecture, and results-driven delivery that aligns technology with business outcomes. I have a passion for building robust, scalable systems and leading cross-functional teams to success.</p>
             </div>
         </section>
 
@@ -197,13 +165,13 @@
             <h2 class="text-3xl font-bold highlight-text mb-6" data-text="Work Experience"></h2>
             <div class="section-content">
                 <div id="experience-data" class="space-y-10">
-                    <div class="border-l-2 experience-border pl-6"><h3 class="text-xl font-bold text-white">Principal Software Developer</h3><p class="highlight-text">Fidelity Investments | 2022 - Present</p><p class="mt-2 text-gray-300 text-lg leading-loose">Spearheaded design and development of a next-gen digital onboarding platform for institutional clearing and custody clients using Spring Boot and AngularJS. Led the creation of PaaS API services and external YAML contract onboarding, enabling client self-service integration. Architected reusable digital signing solution, reducing onboarding friction and error rates for investor profiles.</p></div>
-                    <div class="border-l-2 experience-border pl-6"><h3 class="text-xl font-bold text-white">Sr. Java Developer</h3><p class="highlight-text">The Hanover Group | 2021 - 2022</p><p class="mt-2 text-gray-300 text-lg leading-loose">Modernized policy management system backend using Spring Boot and Hibernate; implemented CRUD APIs and DB2 schema. Partnered with BAs and Architects to formalize agile epics and sprint deliverables. Introduced structured timestamp and login tracking mechanisms to improve auditability.</p></div>
-                    <div class="border-l-2 experience-border pl-6"><h3 class="text-xl font-bold text-white">Sr. Java Developer</h3><p class="highlight-text">Hiscox USA | 2019 - 2021</p><p class="mt-2 text-gray-300 text-lg leading-loose">Developed an agent-facing portal for insurance quote and policy lifecycle management. Customized native OneShield Designer platform, integrated workflows, and injected dynamic blocks using Ext JS and Sass. Engineered Datamart queries to bridge legacy systems with responsive UI layers. Delivered high-availability solutions deployed via Azure.</p></div>
-                    <div class="border-l-2 experience-border pl-6"><h3 class="text-xl font-bold text-white">Java Developer</h3><p class="highlight-text">AAA | 2019</p><p class="mt-2 text-gray-300 text-lg leading-loose">Enhanced cancellation and reinstatement flow in policy administration system built on Struts 2. Consumed multiple broker APIs to calculate premiums and manipulate policy state based on real-time transactions. Delivered APIs with JSON parsing logic for flexible frontend consumption.</p></div>
-                    <div class="border-l-2 experience-border pl-6"><h3 class="text-xl font-bold text-white">Web Developer</h3><p class="highlight-text">USAA | 2018</p><p class="mt-2 text-gray-300 text-lg leading-loose">Migrated legacy Java-based portals to React + Redux SPA using open-source F2 framework. Implemented JWT-based auth flows and Redux-powered state management. Trained internal teams on modern JavaScript, Jasmine unit testing, and best practices.</p></div>
-                    <div class="border-l-2 experience-border pl-6"><h3 class="text-xl font-bold text-white">Software Engineer</h3><p class="highlight-text">e-Infochips | 2012 - 2013</p><p class="mt-2 text-gray-300 text-lg leading-loose">Contributed to development of embedded self-checkout scanning device for retail stores. Designed custom Linux OS, wrote C-based device drivers and firmware components.</p></div>
-                    <div class="border-l-2 experience-border pl-6"><h3 class="text-xl font-bold text-white">Firmware Engineer</h3><p class="highlight-text">NTICE Technology | 2010 - 2012</p><p class="mt-2 text-gray-300 text-lg leading-loose">Built ZigBee and Wi-Fi communication modules for India’s Smart Grid initiative. Participated in development of firmware enabling remote data transmission to control centers.</p></div>
+                    <div class="border-l-2 experience-border pl-6"><h3 class="text-xl font-bold text-white">Principal Software Developer</h3><p class="highlight-text">Fidelity Investments | 2022 - Present</p><p class="mt-2 text-gray-400">Spearheaded design and development of a next-gen digital onboarding platform for institutional clearing and custody clients using Spring Boot and AngularJS. Led the creation of PaaS API services and external YAML contract onboarding, enabling client self-service integration. Architected reusable digital signing solution, reducing onboarding friction and error rates for investor profiles.</p></div>
+                    <div class="border-l-2 experience-border pl-6"><h3 class="text-xl font-bold text-white">Sr. Java Developer</h3><p class="highlight-text">The Hanover Group | 2021 - 2022</p><p class="mt-2 text-gray-400">Modernized policy management system backend using Spring Boot and Hibernate; implemented CRUD APIs and DB2 schema. Partnered with BAs and Architects to formalize agile epics and sprint deliverables. Introduced structured timestamp and login tracking mechanisms to improve auditability.</p></div>
+                    <div class="border-l-2 experience-border pl-6"><h3 class="text-xl font-bold text-white">Sr. Java Developer</h3><p class="highlight-text">Hiscox USA | 2019 - 2021</p><p class="mt-2 text-gray-400">Developed an agent-facing portal for insurance quote and policy lifecycle management. Customized native OneShield Designer platform, integrated workflows, and injected dynamic blocks using Ext JS and Sass. Engineered Datamart queries to bridge legacy systems with responsive UI layers. Delivered high-availability solutions deployed via Azure.</p></div>
+                    <div class="border-l-2 experience-border pl-6"><h3 class="text-xl font-bold text-white">Java Developer</h3><p class="highlight-text">AAA | 2019</p><p class="mt-2 text-gray-400">Enhanced cancellation and reinstatement flow in policy administration system built on Struts 2. Consumed multiple broker APIs to calculate premiums and manipulate policy state based on real-time transactions. Delivered APIs with JSON parsing logic for flexible frontend consumption.</p></div>
+                    <div class="border-l-2 experience-border pl-6"><h3 class="text-xl font-bold text-white">Web Developer</h3><p class="highlight-text">USAA | 2018</p><p class="mt-2 text-gray-400">Migrated legacy Java-based portals to React + Redux SPA using open-source F2 framework. Implemented JWT-based auth flows and Redux-powered state management. Trained internal teams on modern JavaScript, Jasmine unit testing, and best practices.</p></div>
+                    <div class="border-l-2 experience-border pl-6"><h3 class="text-xl font-bold text-white">Software Engineer</h3><p class="highlight-text">e-Infochips | 2012 - 2013</p><p class="mt-2 text-gray-400">Contributed to development of embedded self-checkout scanning device for retail stores. Designed custom Linux OS, wrote C-based device drivers and firmware components.</p></div>
+                    <div class="border-l-2 experience-border pl-6"><h3 class="text-xl font-bold text-white">Firmware Engineer</h3><p class="highlight-text">NTICE Technology | 2010 - 2012</p><p class="mt-2 text-gray-400">Built ZigBee and Wi-Fi communication modules for India’s Smart Grid initiative. Participated in development of firmware enabling remote data transmission to control centers.</p></div>
                 </div>
             </div>
         </section>
@@ -222,7 +190,7 @@
         <section id="contact" class="p-8 rounded-lg section-card text-center animated-section">
             <h2 class="text-3xl font-bold highlight-text mb-6" data-text="Get In Touch"></h2>
             <div class="section-content">
-                <p class="text-gray-300 text-lg mb-6">Feel free to reach out.</p>
+                <p class="text-gray-400 mb-6">Feel free to reach out.</p>
                 <a href="mailto:maulik22ec@gmail.com" class="themed-button font-bold py-3 px-6 rounded-md transition duration-300">Email Me</a>
             </div>
         </section>
@@ -233,9 +201,10 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // --- Generic Typewriter Function ---
         function typeWriter(element, text, speed, callback) {
             let i = 0;
-            element.innerHTML = '';
+            element.innerHTML = ''; // Clear element
             function type() {
                 if (i < text.length) {
                     element.innerHTML += text.charAt(i);
@@ -247,6 +216,8 @@
             }
             type();
         }
+
+        // --- Scroll Animations ---
         const animatedSections = document.querySelectorAll('.animated-section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -270,6 +241,7 @@
                         }
                     }
                 } else {
+                    // Reset animation when scrolling up and out of view
                     if (entry.boundingClientRect.y > 0) {
                         entry.target.classList.remove('visible', 'has-animated');
                         if (heading) {
@@ -285,42 +257,11 @@
 
         animatedSections.forEach(section => observer.observe(section));
 
-        // --- Hero Animation Sequence ---
-        const codeLine1 = document.getElementById('code-line-1');
-        const executeButton = document.getElementById('execute-button');
-        const introContainer = document.getElementById('intro-animation-container');
-        const heroOutputContainer = document.getElementById('hero-output-container');
-        const heroName = document.getElementById('hero-name');
-        const heroDetails = document.getElementById('hero-details');
-
-        const codeText = 'System.out.print(name + "\\n" + details);';
-
-        typeWriter(codeLine1, codeText, 100, () => {
-            codeLine1.innerHTML += '<span class="typewriter-cursor"></span>';
-            setTimeout(() => {
-                executeButton.classList.add('visible');
-
-                setTimeout(() => {
-                    executeButton.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        introContainer.style.transition = 'opacity 0.5s ease-out';
-                        introContainer.style.opacity = '0';
-
-                        setTimeout(() => {
-                            introContainer.style.display = 'none';
-                            heroOutputContainer.style.display = 'block';
-                            heroName.classList.add('visible');
-
-                            setTimeout(() => {
-                                heroDetails.style.opacity = '1';
-                            }, 1200);
-
-                        }, 500);
-
-                    }, 200);
-                }, 1000);
-
-            }, 500);
+        // --- Hero Name Typewriter ---
+        const nameElement = document.getElementById('hero-name');
+        const nameText = "Maulik Patel";
+        typeWriter(nameElement, nameText, 150, () => {
+            nameElement.innerHTML += '<span class="typewriter-cursor"></span>';
         });
     });
 </script>
